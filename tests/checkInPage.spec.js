@@ -89,8 +89,7 @@ test.describe('Hybrid Check In/Add Appointment', () => {
 
         // B3: Kích hoạt hành động gây ra API (click Save)
         await checkInPage.saveButton.click(); 
-        const payload = await initialResponse.json(); // <-- khai báo ở đây
-console.log('Payload tạo appointment:', payload);
+        
 
         // B4: Chờ đợi và xử lý phản hồi API
         let initialResponse; 
@@ -104,6 +103,10 @@ console.log('Payload tạo appointment:', payload);
         if (initialResponse.status() !== 200) {
             throw new Error(`API tạo Appointment trả về Status Code ${initialResponse.status()}`);
         }
+
+        // Lấy payload từ response
+        const payload = await initialResponse.json();
+        console.log('Payload tạo appointment:', payload);
 
         // B5: Trích xuất và Assert Phản hồi Tạo
         const createResponseBody = await initialResponse.json();

@@ -79,6 +79,7 @@ test.describe('Hybrid Check In/Add Appointment', () => {
         // await checkInPage.memoField.fill(TEST_DATA.memo);
         
         await checkInPage.addToWorklist.click();
+console.log('Payload tạo appointment:', payload);
 
         // B2: Đặt trình lắng nghe (listener) cho phản hồi API tạo
         const responsePromise = page.waitForResponse(response => {

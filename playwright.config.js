@@ -60,6 +60,8 @@ export default defineConfig({
       testMatch: /checkInPage\.spec\.js|newAppointment\.spec\.js/,
       use: {
         ...devices['Desktop Chrome'],
+        locale: 'vi-VN',
+        timezoneId: 'Asia/Ho_Chi_Minh', // Ép buộc dùng giờ VN thay vì UTC
         // 3. Sử dụng trạng thái đã lưu để duy trì đăng nhập
         storageState: STORAGE_STATE,
       },

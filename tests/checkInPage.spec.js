@@ -79,20 +79,21 @@ test.describe('Hybrid Check In/Add Appointment', () => {
         // await checkInPage.memoField.fill(TEST_DATA.memo);
         
         await checkInPage.addToWorklist.click();
-       
+       await page.waitForTimeout(5000);
 
         // B2: Đặt trình lắng nghe (listener) cho phản hồi API tạo
-        const responsePromise = page.waitForResponse(response => {
-            // Lọc theo URL và Method POST đến GraphQL endpoint
-            return response.url().includes(API_BASE_URL) && response.request().method() === 'POST';
+        const responsePromise = page.waitForResponse(async response => {
+            if (response.url().includes(API_BASE_URL) && response.request().method() === 'POST') {
+                // [FIX] Log payload thực tế gửi đi để debug
+                const requestBody = response.request().postDataJSON();
+                // Chỉ log nếu đây là request AddAppointment
+                if (JSON.stringify(requestBody).includes(CREATE_OPERATION_NAME)) {
+                    console.log('>>> ACTUAL REQUEST PAYLOAD:', JSON.stringify(requestBody, null, 2));
+                }
+                return true;
+            }
+            return false;
         });
-
-        console.log('=== Payload gửi đi trước khi tạo Appointment ===');
-        console.log({
-        patient: TEST_DATA.patientSearchTerm,
-        clinic: TEST_DATA.clinic,
-        doctor: TEST_DATA.doctor
-});
         // B3: Kích hoạt hành động gây ra API (click Save)
         await checkInPage.saveButton.click(); 
         

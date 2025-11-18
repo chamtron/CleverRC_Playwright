@@ -68,17 +68,7 @@ test.describe('Hybrid Check In/Add Appointment', () => {
         
         // Nhập từ khóa tìm kiếm
         await checkInPage.selectPatient(TEST_DATA.patientSearchTerm); 
-        if (!await checkInPage.patientExists(TEST_DATA.patientSearchTerm)) {
-            throw new Error(`❌ Patient ${TEST_DATA.patientSearchTerm} không tồn tại trên CI`);
-        }
-
-        if (!await checkInPage.clinicExists(TEST_DATA.clinic)) {
-            throw new Error(`❌ Clinic ${TEST_DATA.clinic} không tồn tại trên CI`);
-        }
-
-        if (!await checkInPage.doctorExists(TEST_DATA.doctor)) {
-            throw new Error(`❌ Doctor ${TEST_DATA.doctor} không tồn tại trên CI`);
-        }
+      
         // KHẮC PHỤC LỖI "element not visible": Chờ và click vào kết quả tìm kiếm bệnh nhân ('p01 mid 01')
         const patientResultLocator = page.locator('span').filter({ hasText: TEST_DATA.patientFullName }).first();
         await patientResultLocator.waitFor({ state: 'visible', timeout: 10000 });

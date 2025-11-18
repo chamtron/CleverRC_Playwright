@@ -68,7 +68,17 @@ test.describe('Hybrid Check In/Add Appointment', () => {
         
         // Nhập từ khóa tìm kiếm
         await checkInPage.selectPatient(TEST_DATA.patientSearchTerm); 
-        
+        if (!await checkInPage.patientExists(TEST_DATA.patientSearchTerm)) {
+            throw new Error(`❌ Patient ${TEST_DATA.patientSearchTerm} không tồn tại trên CI`);
+        }
+
+        if (!await checkInPage.clinicExists(TEST_DATA.clinic)) {
+            throw new Error(`❌ Clinic ${TEST_DATA.clinic} không tồn tại trên CI`);
+        }
+
+        if (!await checkInPage.doctorExists(TEST_DATA.doctor)) {
+            throw new Error(`❌ Doctor ${TEST_DATA.doctor} không tồn tại trên CI`);
+        }
         // KHẮC PHỤC LỖI "element not visible": Chờ và click vào kết quả tìm kiếm bệnh nhân ('p01 mid 01')
         const patientResultLocator = page.locator('span').filter({ hasText: TEST_DATA.patientFullName }).first();
         await patientResultLocator.waitFor({ state: 'visible', timeout: 10000 });
@@ -87,6 +97,12 @@ test.describe('Hybrid Check In/Add Appointment', () => {
             return response.url().includes(API_BASE_URL) && response.request().method() === 'POST';
         });
 
+        console.log('=== Payload gửi đi trước khi tạo Appointment ===');
+        console.log({
+        patient: TEST_DATA.patientSearchTerm,
+        clinic: TEST_DATA.clinic,
+        doctor: TEST_DATA.doctor
+});
         // B3: Kích hoạt hành động gây ra API (click Save)
         await checkInPage.saveButton.click(); 
         
@@ -104,9 +120,6 @@ test.describe('Hybrid Check In/Add Appointment', () => {
             throw new Error(`API tạo Appointment trả về Status Code ${initialResponse.status()}`);
         }
 
-        // Lấy payload từ response
-        const payload = await initialResponse.json();
-        console.log('Payload tạo appointment:', payload);
 
         // B5: Trích xuất và Assert Phản hồi Tạo
         const createResponseBody = await initialResponse.json();

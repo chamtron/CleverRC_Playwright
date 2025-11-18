@@ -119,7 +119,7 @@ test.describe('Hybrid Check In/Add Appointment', () => {
         
         // *** SỬA LỖI 2: Ưu tiên 'createAppointment' làm key chính xác dựa trên response JSON ***
         // Thêm 'createAppointment' vào đầu danh sách check
-        const createAppointmentResult = createResponseBody?.data?.createAppointment || createResponseBody?.data?.AddAppointment || createResponseBody?.data?.addAppointment;
+        const createAppointmentResult = createResponseBody?.data?.createAppointment;
 
         // **ASSERT TRỰC TIẾP TRÊN PHẢN HỒI TẠO**
         //expect(createAppointmentResult, 'Không tìm thấy đối tượng createAppointment trong phản hồi. Vui lòng kiểm tra console log để xem cấu trúc response JSON.').toBeDefined();

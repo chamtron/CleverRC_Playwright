@@ -72,7 +72,7 @@ test.describe('Add Appointment', () => {
         
         // KHẮC PHỤC LỖI "element not visible": Chờ và click vào kết quả tìm kiếm bệnh nhân ('p01 mid 01')
         const patientResultLocator = page.locator('span').filter({ hasText: TEST_DATA.patientFullName }).first();
-        await patientResultLocator.waitFor({ state: 'visible', timeout: 5000 });
+        await patientResultLocator.waitFor({ state: 'visible', timeout: 10000 });
         await patientResultLocator.click();
         
         await newAppointment.addToWorklist.click();

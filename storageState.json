@@ -1,0 +1,77 @@
+{
+  "cookies": [
+    {
+      "name": "accessToken",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJyY2QyODA1IiwicmNJZCI6InJjZDI4MDUiLCJ0eXBlIjoiUkNVc2VyIiwidXNlck9iamVjdElkIjoiNjY1NThiNWEwMzJiNWUzZDUwYzEwZGIwIiwiZnVsbE5hbWVzIjpbIkRvbHBoaW4xIiwiMTIzNCIsIlRyYW4xIl0sImVtYWlsIjoiZG9scGhpbi50cmFuQGV3b29zb2Z0LmNvbSIsInNlc3Npb25JZCI6IjRlNjQwMGVlYTIwODQ0MjUzZGQ4NjM1MDg3YmVlNzMzIiwiaWF0IjoxNzYzMzE3MTgyLCJleHAiOjE3NjM0MDM1ODJ9.JyS3ssMgotGv3rrLlCOPfFprKluOLW6y5cIwE7I4BMw",
+      "domain": "rcd.vnclever.com",
+      "path": "/",
+      "expires": 1764217183.63146,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "refreshToken",
+      "value": "449110cf1c801a4e",
+      "domain": "rcd.vnclever.com",
+      "path": "/",
+      "expires": 1792117183.633637,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "sessionId",
+      "value": "bbHGF85MYaiX2dSAlWo9S3B8y9zc9qQe",
+      "domain": "rcd.vnclever.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://rcd.vnclever.com",
+      "localStorage": [
+        {
+          "name": "mui-color-scheme-dark",
+          "value": "dark"
+        },
+        {
+          "name": "trigger_update_storage_stats",
+          "value": "not_triggered"
+        },
+        {
+          "name": "show_storage_exceeded_at_login",
+          "value": "not_shown"
+        },
+        {
+          "name": "currency",
+          "value": "USD"
+        },
+        {
+          "name": "mui-mode",
+          "value": "light"
+        },
+        {
+          "name": "mui-color-scheme-light",
+          "value": "light"
+        },
+        {
+          "name": "language",
+          "value": "English"
+        },
+        {
+          "name": "shown_storage_near_limit",
+          "value": "not_shown"
+        },
+        {
+          "name": "persist:root",
+          "value": "{\"global\":\"{\\\"showToastMessenger\\\":true,\\\"showVersionInfo\\\":false,\\\"showResetPasswordFinish\\\":false,\\\"rcInformation\\\":{\\\"name\\\":\\\"---rcd2805 name\\\",\\\"address\\\":\\\"https://vts.vatech.com\\\",\\\"phone\\\":\\\"+525678999544\\\"},\\\"currency\\\":\\\"USD\\\",\\\"enableIVA\\\":false,\\\"defaultAppointmentDate\\\":\\\"tomorrow\\\",\\\"showNotices\\\":\\\"PopUp\\\"}\",\"_persist\":\"{\\\"version\\\":-1,\\\"rehydrated\\\":true}\"}"
+        }
+      ]
+    }
+  ]
+}

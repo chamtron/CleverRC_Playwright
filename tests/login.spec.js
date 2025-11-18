@@ -1,8 +1,8 @@
 // tests/login.spec.ts
 import { test, expect } from '@playwright/test';
 import path from 'path';
-//import { readExcel } from '../utils/readExcel';
-//import { LoginPage } from '../pages/login.page';
+import { readExcel } from '../utils/readExcel';
+import { LoginPage } from '../pages/login.page';
 
 // ✅ Đọc dữ liệu Excel
 const dataFile = path.resolve(__dirname, '../data/login-data.xlsx');

@@ -56,9 +56,9 @@ async function globalSetup() {
 
     // 4. LƯU TRẠNG THÁI
     await page.context().storageState({ path: STORAGE_STATE_FILE });
-    console.log(`✅ Trạng thái đăng nhập đã được lưu vào ${STORAGE_STATE_FILE}`);
+    console.log('✅ Trạng thái đăng nhập đã được lưu vào ${STORAGE_STATE_FILE}');
 
-    //await browser.close();
+    await browser.close();
 }
 
 // Export hàm này để Playwright gọi nó, KHÔNG phải hàm setup()

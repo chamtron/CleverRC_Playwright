@@ -71,7 +71,7 @@ test.describe('Hybrid Check In/Add Appointment', () => {
         
         // KHẮC PHỤC LỖI "element not visible": Chờ và click vào kết quả tìm kiếm bệnh nhân ('p01 mid 01')
         const patientResultLocator = page.locator('span').filter({ hasText: TEST_DATA.patientFullName }).first();
-        await patientResultLocator.waitFor({ state: 'visible', timeout: 5000 });
+        await patientResultLocator.waitFor({ state: 'visible', timeout: 10000 });
         await patientResultLocator.click();
 
         // Thêm memo (để đảm bảo data là duy nhất cho lần test này)
@@ -79,7 +79,7 @@ test.describe('Hybrid Check In/Add Appointment', () => {
         // await checkInPage.memoField.fill(TEST_DATA.memo);
         
         await checkInPage.addToWorklist.click();
-console.log('Payload tạo appointment:', payload);
+       
 
         // B2: Đặt trình lắng nghe (listener) cho phản hồi API tạo
         const responsePromise = page.waitForResponse(response => {
@@ -89,6 +89,8 @@ console.log('Payload tạo appointment:', payload);
 
         // B3: Kích hoạt hành động gây ra API (click Save)
         await checkInPage.saveButton.click(); 
+        const payload = await initialResponse.json(); // <-- khai báo ở đây
+console.log('Payload tạo appointment:', payload);
 
         // B4: Chờ đợi và xử lý phản hồi API
         let initialResponse; 

@@ -31,7 +31,7 @@ export default defineConfig({
 
     /* Các cài đặt chung từ file gốc của bạn */
     trace: 'on-first-retry',
-    headless: false, // Chạy ở chế độ có giao diện
+    headless: true, // Chạy ở chế độ có giao diện
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     // Cấu hình cho API testing
